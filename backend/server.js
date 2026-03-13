@@ -6,7 +6,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("API controle de estudos funcionando!!!")
+    res.send("API controle de estudos funcionando!!!!")
 });
 /* Rota de estudos */
 app.get("/lista", (req, res) => {
