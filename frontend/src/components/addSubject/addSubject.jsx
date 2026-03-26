@@ -18,3 +18,6 @@ export default function AddSubject() {
         </div>
     )
 }
+
+/* Rota que lista as matérias: "http://localhost:3000/study" */
+/* Rota que adiciona alguma matéria: "http://localhost:3000/study" */

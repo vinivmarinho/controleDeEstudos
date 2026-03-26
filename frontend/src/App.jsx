@@ -16,7 +16,7 @@ function App() {
 
 
         /* Guarda a quantidade de horas estudadas dentro de "data" e transforma para um número inteiro */
-        const total = parseInt(data.reduce((total, item) => total + item.duration, 0) / 60);
+        const total = Math.floor(data.reduce((total, item) => total + item.duration, 0) / 60);
         setTotalTime(total);
         
         console.log(total);
