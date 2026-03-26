@@ -7,29 +7,25 @@ function App() {
   const [totalSubjects, setTotalSubjects] = useState("");
   const [totalTime, setTotalTime] = useState("");
   
+  async function fetchStats() {
+    try{
+      const res = await fetch("http://localhost:3000/study");
+      const data = await res.json();
+      setTotalSubjects(data.length);
+
+
+      /* Guarda a quantidade de horas estudadas dentro de "data" e transforma para um número inteiro */
+      const total = Math.floor(data.reduce((total, item) => total + item.duration, 0) / 60);
+      setTotalTime(total);
+      
+
+    } catch(error) {
+      console.error("Erro ao buscar dados", error);
+    }
+  };
+
   useEffect(() => {
-    async function fetchStats() {
-      try{
-        const res = await fetch("http://localhost:3000/study");
-        const data = await res.json();
-        setTotalSubjects(data.length);
-
-
-        /* Guarda a quantidade de horas estudadas dentro de "data" e transforma para um número inteiro */
-        const total = Math.floor(data.reduce((total, item) => total + item.duration, 0) / 60);
-        setTotalTime(total);
-        
-        console.log(total);
-        console.log(data.length);
-
-      } catch(error) {
-        console.error("Erro ao buscar dados", error);
-      }
-    };
-
-    fetchStats(); // Aqui a função é chamada
-
-    
+    fetchStats();
   }, []);
 
 
@@ -44,7 +40,7 @@ function App() {
         <Card titulo="Meta diária" info="4" isTime={true}/>
       </div>
       
-      <AddSubject />
+        <AddSubject onAdd={fetchStats} /> {/* Passo a função fetchStats para onAdd */}
       
     </main>
   )
