@@ -1,9 +1,10 @@
 import "./card.css"
-export default function Card({ titulo , info}) {
+export default function Card({ titulo , info, isTime=false}) {
     return(
         <div className="card">
             <h3>{titulo}</h3>
-            <p>{info}</p>
+            {isTime && <p>{info}h</p> }
+            {!isTime && <p>{info}</p>}
         </div>
     )
 }

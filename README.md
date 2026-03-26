@@ -32,12 +32,12 @@ Este projeto utiliza:
 - Express
 - CORS
 - JavaScript
+- React
 
 ## 📦 Funcionalidades (Planejadas)
 
 - Adicionar uma matéria de estudo
 - Listar matérias de estudo
-- Registrar sessões de estudo
 - Acompanhar o progresso dos estudos
 
 ## 🚀 Propósito de Aprendizado
